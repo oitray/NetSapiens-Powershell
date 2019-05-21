@@ -1,0 +1,11 @@
+{
+  "_Info": [
+    "This is the JSON based configuration for the NetSapiens Powershell management console",
+    "For support and OAUTH keys please please contact OIT support@oit.co"
+  ],
+  "NetSapiens": {
+    "fqdn": "manage.oitvoip.com",
+    "clientID": "",
+    "clientSecret": ""
+  }
+}
