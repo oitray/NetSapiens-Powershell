@@ -23,14 +23,12 @@ Several commands for daily management of the platform. Most require the $domain 
 Get-CallRecording -domain "oitdemo.20463.service"
 
 ## Installation
-
-Clone Git
-Edit the config.json file. Enter your PBX portal, Client ID and Client Secret.
+   
+   install-module PSNetSapiens
 
 ## How to use?
 
-Run netsapiens.ps1 via PowerShell command line or ISE v3.0+
-You will be prompted for your PBX user name and password.
+need to update
 
 ## Support
 
