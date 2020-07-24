@@ -1,5 +1,5 @@
 
-function Get-NSAPI {
+function Remove-NSAPI {
     [CmdletBinding()]
     Param(
         [Parameter(ParameterSetName = 'Parameters', Mandatory = $true)]
