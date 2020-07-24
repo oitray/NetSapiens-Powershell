@@ -24,7 +24,7 @@ function Set-NSAPI {
             domain = $script:NSdomain
             format = 'json'
         }
-        if ($PSBoundParameters.OptionalParameters) { $payload = $payload + $Parameters }
+         $payload = $payload + $Parameters 
         try {
             Invoke-RestMethod $script:baseurl -Headers $script:NSAPIHeaders -Body $payload -Method POST
         }
