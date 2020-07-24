@@ -3,7 +3,7 @@ function New-NSAPI {
     [CmdletBinding()]
     Param(
         [Parameter(ParameterSetName = 'Parameters', Mandatory = $true)]
-        [String]$Parameters
+        $Parameters
     )
     DynamicParam {
         $Script:CreateParameters
@@ -16,14 +16,14 @@ function New-NSAPI {
 
      }
         process {
-            if($PSBoundParameters.OptionalParameters){$payload = $payload + $OptionalParameters }
+           
 
             $payload = @{
                 object = $PSBoundParameters.resource
-                action = 'update'
+                action = 'create'
                 domain = $script:NSdomain
-                format = 'json'
             }
+            $payload = $payload + $Parameters 
             try {
                 Invoke-RestMethod $script:baseurl -Headers $script:NSAPIHeaders -Body $payload -Method POST
             }

@@ -49,6 +49,7 @@ function Connect-NSAPI (
     [Parameter(Mandatory = $true)]$baseurl,
     [Parameter(Mandatory = $true)]$ClientID,
     [Parameter(Mandatory = $true)]$Secret,
+    [Parameter(Mandatory = $false)]$Domain,
     [Parameter(Mandatory = $true)][PSCredential]$credentials
 ) {
     $Script:BaseURL = $baseurl
@@ -59,7 +60,7 @@ function Connect-NSAPI (
     try {
         $tokenURL = "$baseurl/oauth2/token/?grant_type=password&client_id=$($ClientID)&client_secret=$($Secret)&username=$($Username)&password=$($DecryptedPassword)"
         $Token = Invoke-RestMethod $tokenURL
-        $script:NSDomain = $token.domain
+        if(!$Domain) { $script:NSDomain = $token.domain} else { $script:NSDomain = $Domain}
         $script:NSAPIHeaders = @{"Authorization" = "Bearer $($token.access_token)" }
         write-host "Successfully connected to $baseurl"  -ForegroundColor Green
         write-host "Retrieving API resources. This might take a moment" -ForegroundColor Green
