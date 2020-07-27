@@ -16,7 +16,7 @@ function Remove-NSAPI {
 
      }
         process {
-            if($PSBoundParameters.OptionalParameters){$payload = $payload + $OptionalParameters }
+     
 
             $payload = @{
                 object = $PSBoundParameters.resource
@@ -24,6 +24,7 @@ function Remove-NSAPI {
                 domain = $script:NSdomain
                 format = 'json'
             }
+            if($PSBoundParameters.OptionalParameters){$payload = $payload + $OptionalParameters }
             try {
                 Invoke-RestMethod $script:baseurl -Headers $script:NSAPIHeaders -Body $payload -Method POST
             }
