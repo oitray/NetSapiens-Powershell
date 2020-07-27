@@ -3,7 +3,7 @@ function Remove-NSAPI {
     [CmdletBinding()]
     Param(
         [Parameter(ParameterSetName = 'Parameters', Mandatory = $true)]
-        [String]$OptionalParameters
+        $OptionalParameters
     )
     DynamicParam {
         $Script:DeleteParameters
@@ -16,7 +16,6 @@ function Remove-NSAPI {
 
      }
         process {
-     
 
             $payload = @{
                 object = $PSBoundParameters.resource
